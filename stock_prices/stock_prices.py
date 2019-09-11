@@ -10,21 +10,35 @@ import argparse
 
 # Numbers will be negative, so we'll need to look for the largest negative number and return that number as a positive by multiplying it as negative one
 
-prices = [1050, 270, 1540, 3800, 2]
+prices = [10, 7, 5, 8, 11, 9]
 
 def find_max_profit(prices):
     listOfProfits = []
     for x in range(len(prices)):
-        for y in range(len(prices)):
-            if prices[y] > prices[x]:
-                print(f"{prices[y]}, {prices[x]}")
-                listOfProfits.append(0)
-            else:
-                listOfProfits.append((prices[y], prices[x], prices[y]-prices[x]))
+        for y in range(x+1,len(prices)):
+           # if prices[y] > prices[x]:
+            #    print(f"{prices[y]}, {prices[x]}")
+             #   listOfProfits.append(0)
+           # else:
+                listOfProfits.append(prices[y]-prices[x])
 
    
-    return print(listOfProfits)
-find_max_profit(prices)
+    return max(listOfProfits)
+#find_max_profit(prices)
+
+def find_max_profit_take_2(prices):
+    current_min_price_so_far = 0
+    max_profit_so_far = 0
+    for x in range(len(prices)):
+        current_min_price_so_far = prices[x]
+        for y in range(len(prices)):
+            max_profit_so_far = prices[y]-prices[x]
+            print(max_profit_so_far)
+            print(current_min_price_so_far)
+
+#find_max_profit_take_2(prices)
+            
+            
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
