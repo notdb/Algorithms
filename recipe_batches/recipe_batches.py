@@ -28,7 +28,7 @@ def recipe_batches(recipe, ingredients):
         ingredientsArray.append(v)
     print(recipeArray)
     print(ingredientsArray)
-    batches = [(x / y) for x in recipeArray for y in ingredientsArray if x ]
+    batches = [lambda x,y: x // y,  recipeArray, ingredientsArray ]
     print(batches)
     print(min(batches))
     if len(ingredientsArray) != len(recipeArray):
